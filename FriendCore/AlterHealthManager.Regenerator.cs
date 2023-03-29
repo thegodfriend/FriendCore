@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace JunkCore
+namespace FriendCore
 {
     public partial class AlterHealthManager
     {

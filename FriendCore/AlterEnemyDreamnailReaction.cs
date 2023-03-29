@@ -2,7 +2,7 @@
 using System;
 using UnityEngine;
 
-namespace JunkCore
+namespace FriendCore
 {
     public class AlterEnemyDreamnailReaction : MonoBehaviour
     {
