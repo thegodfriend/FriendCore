@@ -13,7 +13,7 @@ namespace FriendCore
         private Func<int> soulOnHit = delegate () {
             PlayerData _pd = PlayerData.instance;
             int soulNum;
-            if (_pd.GetInt("MPCharge") < _pd.GetInt("maxHP"))
+            if (_pd.GetInt("MPCharge") < _pd.GetInt("maxMP"))
             {
                 soulNum = 11;
                 if (_pd.GetBool("equippedCharm_20"))
