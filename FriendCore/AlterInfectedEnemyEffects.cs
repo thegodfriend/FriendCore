@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace FriendCore
 {
-    internal class AlterInfectedEnemyEffects : MonoBehaviour
+    public class AlterInfectedEnemyEffects : MonoBehaviour
     {
         private bool noBlood = false;
         private Color bloodColor = new Color(1f, 0.31f, 0f);
