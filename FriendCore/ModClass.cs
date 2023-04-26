@@ -19,16 +19,18 @@ namespace FriendCore
         //    };
         //}
 
-        //public FriendCore() : base("FriendCore")
-        //{
-        //    Instance = this;
-        //}
+        public override string GetVersion() => "0.9.0.0";
+
+        public FriendCore() : base("FriendCore")
+        {
+            Instance = this;
+        }
 
         public override void Initialize(Dictionary<string, Dictionary<string, GameObject>> preloadedObjects)
         {
             Log("Initializing");
 
-            Instance = this;
+            //Instance = this;
 
             Log("Initialized");
         }
