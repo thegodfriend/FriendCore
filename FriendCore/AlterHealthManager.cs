@@ -39,12 +39,13 @@ namespace FriendCore
             }
             return soulNum;
         };
+        
         /// <summary>
         /// A tracker int to be used in creative ways.
         /// </summary>
         public int soulGivenTracker;
 
-        public void Awake()
+        void Awake()
         {
             _hm = GetComponent<HealthManager>();
             if (!_hm)
@@ -55,7 +56,7 @@ namespace FriendCore
             _maxHp = _hm.hp;
         }
 
-        public void Start()
+        void Start()
         {
             On.HealthManager.TakeDamage += HealthManager_TakeDamage;
         }
@@ -244,7 +245,7 @@ namespace FriendCore
         }
 
         
-        public void OnDestroy()
+        void OnDestroy()
         {
             On.HealthManager.TakeDamage -= HealthManager_TakeDamage;
         }

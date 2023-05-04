@@ -17,7 +17,7 @@ namespace FriendCore
             return (GameManager.instance.playerData.GetBool("equippedCharm_30") ? 66 : 33);
         };
 
-        public void Awake()
+        void Awake()
         {
             _dreamnailReaction = GetComponent<EnemyDreamnailReaction>();
             if (!_dreamnailReaction)
@@ -26,7 +26,7 @@ namespace FriendCore
             }
         }
 
-        public void Start()
+        void Start()
         {
             On.EnemyDreamnailReaction.RecieveDreamImpact += EnemyDreamnailReaction_RecieveDreamImpact;
         }
@@ -127,7 +127,7 @@ namespace FriendCore
         }
 
 
-        public void OnDestroy()
+        void OnDestroy()
         {
             On.EnemyDreamnailReaction.RecieveDreamImpact -= EnemyDreamnailReaction_RecieveDreamImpact;
         }

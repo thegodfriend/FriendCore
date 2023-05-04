@@ -9,7 +9,7 @@ namespace FriendCore
         private Color bloodColor = new Color(1f, 0.31f, 0f);
         private Color flashColor = new Color(1f, 0.31f, 0f);
 
-        public void Awake()
+        void Awake()
         {
             InfectedEnemyEffects infectedeffects = GetComponent<InfectedEnemyEffects>();
             if (!infectedeffects)
@@ -18,7 +18,7 @@ namespace FriendCore
             }
         }
 
-        public void Start()
+        void Start()
         {
             On.InfectedEnemyEffects.RecieveHitEffect += InfectedEnemyEffects_RecieveHitEffect;
         }
@@ -101,7 +101,7 @@ namespace FriendCore
             orig(self, attackDirection);
         }
 
-        public void OnDestroy()
+        void OnDestroy()
         {
             On.InfectedEnemyEffects.RecieveHitEffect -= InfectedEnemyEffects_RecieveHitEffect;
         }
