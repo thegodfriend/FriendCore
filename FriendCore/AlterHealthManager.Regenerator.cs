@@ -17,7 +17,7 @@ namespace FriendCore
         public void SetRegenEnabled(bool enabled = true)
         {
             regenEnabled = enabled;
-            StartCoroutine(Regeneration());
+            if (regenEnabled) StartCoroutine(Regeneration());
         }
 
         public void SetRegenPauseTimeOnHit(float t)
