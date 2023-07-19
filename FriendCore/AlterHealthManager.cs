@@ -107,7 +107,11 @@ namespace FriendCore
 
         public void SetMaxHp(int maxHp)
         {
+            int hp = _hm.hp;
             _maxHp = maxHp;
+            _hm.hp = _maxHp;
+            gameObject.RefreshHPBar();
+            _hm.hp = hp;
         }
 
         private void HealthManager_TakeDamage(On.HealthManager.orig_TakeDamage orig, HealthManager self, HitInstance hitInstance)
