@@ -1,5 +1,6 @@
 ﻿using Modding;
 using System;
+using System.Runtime.InteropServices.ComTypes;
 using UnityEngine;
 
 namespace FriendCore
@@ -8,7 +9,24 @@ namespace FriendCore
     {
 
         private HealthManager _hm;
+        public int hp
+        {
+            get => _hm.hp;
+            set => _hm.hp = value;
+        }
         private int _maxHp;
+        public int maxHp
+        {
+            get => _maxHp;
+            set
+            {
+                int num = hp;
+                _maxHp = value;
+                hp = _maxHp;
+                gameObject.RefreshHPBar();
+                hp = num;
+            }
+        }
 
         private Func<int> soulOnHit = delegate () {
             PlayerData _pd = PlayerData.instance;
@@ -53,7 +71,7 @@ namespace FriendCore
                 Destroy(this);
             }
 
-            _maxHp = _hm.hp;
+            maxHp = hp;
         }
 
         void Start()
@@ -72,7 +90,7 @@ namespace FriendCore
             {
                 PlayerData _pd = PlayerData.instance;
                 int soulNum;
-                if (_pd.GetInt("MPCharge") < _pd.GetInt("maxHP"))
+                if (_pd.GetInt("MPCharge") < _pd.GetInt("maxMP"))
                 {
                     soulNum = mainBase;
                     if (_pd.GetBool("equippedCharm_20"))
@@ -105,13 +123,11 @@ namespace FriendCore
             ReflectionHelper.SetField<HealthManager, int>(_hm, "enemyType", enemyType);
         }
 
-        public void SetMaxHp(int maxHp)
+        public void SetGeo(int large, int medium, int small)
         {
-            int hp = _hm.hp;
-            _maxHp = maxHp;
-            _hm.hp = _maxHp;
-            gameObject.RefreshHPBar();
-            _hm.hp = hp;
+            _hm.SetGeoLarge(large);
+            _hm.SetGeoMedium(medium);
+            _hm.SetGeoSmall(small);
         }
 
         private void HealthManager_TakeDamage(On.HealthManager.orig_TakeDamage orig, HealthManager self, HitInstance hitInstance)
