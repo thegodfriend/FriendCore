@@ -209,7 +209,7 @@ namespace FriendCore
                         ReflectionHelper.GetField<HealthManager, GameObject>(self, "sharpShadowImpactPrefab").Spawn(self.gameObject.transform.position + effectOrigin, Quaternion.identity);
                         break;
                 }
-                InfectedEnemyEffects hitEffectReceiver = ReflectionHelper.GetField<HealthManager, InfectedEnemyEffects>(self, "hitEffectReceiver");
+                IHitEffectReciever hitEffectReceiver = ReflectionHelper.GetField<HealthManager, IHitEffectReciever>(self, "hitEffectReceiver");
                 if (hitEffectReceiver != null && hitInstance.AttackType != AttackTypes.RuinsWater)
                 {
                     hitEffectReceiver.RecieveHitEffect(hitInstance.GetActualDirection(self.gameObject.transform));
