@@ -19,7 +19,7 @@ namespace FriendCore
         //    };
         //}
 
-        public override string GetVersion() => "0.9.1.10";
+        public override string GetVersion() => "0.9.2";
 
         public FriendCore() : base("FriendCore")
         {
